@@ -1,0 +1,108 @@
+<html>
+<head>
+<script>
+function dis(val) {
+document.getElementById("result").value += val
+}
+//function that evaluates the expression and returns the result
+function solve() {
+let x = document.getElementById("result").value
+if(x.length==0 || x.trim().length==0)
+{
+alert("Please enter an expression for evaluation")
+}
+else if(x==="square")
+{
+alert("Please enter a number as well")
+}
+else if (x[x.length - 1] == "e" || x[0] == "s")
+{
+let num = x.match(/\d+/g)
+document.getElementById("result").value =
+parseInt(num) * parseInt(num)
+}
+else
+{
+document.getElementById("result").value = eval(x)
+}
+}
+//function that clears the display
+function clr() {
+document.getElementById("result").value = ""
+}
+</script>
+<style>
+body{
+background: rgb(184, 216, 229);
+}
+div {
+width: 180px;
+padding-left: 80px;
+margin: 20px 0px 20px 465px;
+}
+</style>
+</head>
+<!-- create table -->
+<body>
+<div class=title style="text-align : center ; margin-top : 225px">
+<h2> Calculator </h2>
+</div>
+<div style="margin-left : 440px">
+<table border="1">
+<tr>
+<td colspan="2"><input type="text" id="result" /></td>
+<!-- clr() function will call clr to clear all value -->
+<td><input type="button" name = "mul"  value=" * "   
+    OnClick="dis('*')">  
+ </td>
+<td><input type="button" value="c" onclick="clr()" />
+</td>
+</tr>
+<tr>
+<!-- create button and assign value to each button -->
+<!-- dis(value) will call function dis to display value -->
+<td><input type="button" value="1" onclick="dis('1')" />
+</td>
+<td><input type="button" value="2" onclick="dis('2')" />
+</td>
+<td><input type="button" value="3" onclick="dis('3')" />
+</td>
+<td><input type="button" value="/" onclick="dis('/')" />
+</td>
+</tr>
+<tr>
+<td><input type="button" value="4" onclick="dis('4')" />
+</td>
+<td><input type="button" value="5" onclick="dis('5')" />
+</td>
+<td><input type="button" value="6" onclick="dis('6')" />
+</td>
+<td><input type="button" value="-" onclick="dis('-')" />
+</td>
+</tr>
+<tr>
+<td><input type="button" value="7" onclick="dis('7')" />
+</td>
+<td><input type="button" value="8" onclick="dis('8')" />
+</td>
+<td><input type="button" value="9" onclick="dis('9')" />
+</td>
+<td><input type="button" value="+" onclick="dis('+')" />
+</td>
+</tr>
+<tr>
+<td><input type="button" value="." onclick="dis('.')" />
+</td>
+<td><input type="button" value="0" onclick="dis('0')" />
+</td>
+<!-- solve function call is used to evaluate the expression
+-->
+<td><input type="button" value="=" onclick="solve()" />
+</td>
+<td><input type="button" value="" onclick="dis('')" />
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
